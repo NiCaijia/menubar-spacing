@@ -7,6 +7,16 @@
 
 **macOS 27 为有限兼容：读取相关偏好设置的应用可能生效，Wi-Fi、电池、时钟等系统图标可能不变。** 窗口内的预览是示意图，不能用来证明所有图标的实际变化。
 
+## 下载与安装
+
+[下载 v1.1.0 DMG（Apple Silicon）](https://github.com/NiCaijia/menubar-spacing/releases/download/v1.1.0/MenuBarSpacing-1.1.0-arm64.dmg) · [全部版本](https://github.com/NiCaijia/menubar-spacing/releases)
+
+1. 下载并打开 DMG，把“菜单栏间距.app”拖入旁边的 **Applications（应用程序）**。
+2. 从“应用程序”打开；更新旧版本时，请先退出旧版再替换。
+3. 此版本使用临时签名，**尚无 Developer ID 签名和 Apple 公证**。首次打开如被系统拦截，在确认下载来自本仓库后，可按照 [Apple 官方说明](https://support.apple.com/zh-cn/102445) 在“系统设置 → 隐私与安全性”中选择“仍要打开”。
+
+安装包不需要 Xcode 或其他开发工具。Release 同时提供 `.sha256` 文件用于核对下载完整性；当前不提供 Intel 安装包。
+
 ## 功能
 
 - 独立调整间距与留白，范围为 4–32；提供紧凑、适中、宽松预设。
@@ -44,7 +54,9 @@ open 'dist/菜单栏间距.app'
 
 构建产物采用本地临时签名（ad-hoc），没有 Developer ID 签名或 Apple 公证。通过浏览器下载的构建产物可能被 Gatekeeper 拦截；本项目不提供关闭系统安全检查的脚本。
 
-GitHub Actions 会构建、运行自检，并保存应用 ZIP 作为工作流产物。产物有保留期限，源码构建不依赖这些下载。
+运行 `bash package-dmg.sh` 可把已构建的应用打包成 DMG，并生成 SHA-256 校验文件。为避免覆盖现有包，同版本输出已存在时脚本会停止。
+
+GitHub Actions 会构建、运行自检，并保存 ZIP、DMG 和校验文件作为工作流产物。工作流产物有保留期限；正式安装包从上面的 Releases 下载。
 
 ## 使用
 
