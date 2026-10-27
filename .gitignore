@@ -1,0 +1,10 @@
+.DS_Store
+._*
+dist/
+.module-cache/
+.build/
+*.xcuserstate
+xcuserdata/
+*.log
+.env
+.env.*
